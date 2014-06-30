@@ -21,15 +21,6 @@
       cj('#choose-paymentmethod').hide();
     });
 
-    /*
-    cj(document).ajaxStart(function(){
-      if (cj('#payment_information').find('div#priceset').length) {
-	cj('div#priceset').remove();
-        cj('.payment_options-group').append('<div id="priceset">'+priceFields+'</div>');
-      }
-    });
-    */
-
     cj(document).ajaxComplete(function(event, request, settings) {
          var obj = event.target.activeElement.attributes['name'];
          var name;

@@ -97,7 +97,7 @@
 			    <div id="billing-instructions">Please fill the green fields below</div>
 			    <div data-tab="ACH" class="tab-content">
 
-			    <div id="ACH-fields" style="background-image:url({$BaseUrl}/images/eCheckBkg.jpg)">
+			    <div id="ACH-fields" style="background-image:url({$ExtensionUrl}/images/eCheckBkg.jpg)">
                                 <div class="crm-section {$form.routing_number.name}-section" id="{$form.routing_number.name}-section">
                                     <div class="content">{$form.routing_number.html}</div>
                                     <div class="clear"></div>
@@ -124,7 +124,7 @@
 			</div>
                         {/if}
 		     <div data-tab="Credit Card" class="tab-content current">       
-		    <div id="CREDIT-card-Fields" style="background-image:url({$BaseUrl}/images/genericCardBkg.jpg)">
+		    <div id="CREDIT-card-Fields" style="background-image:url({$ExtensionUrl}/images/genericCardBkg.jpg)">
 		    	<div class="crm-section {$form.credit_card_type.name}-section">
                             <div class="label">{$form.credit_card_type.label} {$reqMark}</div>
                             <div class="content">
@@ -149,7 +149,7 @@
                         </div>
 			<div class="crm-section {$form.cvv2.name}-section">
                             <div class="content">
-                                {$form.cvv2.html}<img id='info-icon' src='{$BaseUrl}/images/info.png'><div id ='cvv-help'><img  src='{$BaseUrl}/images/cvv-help.png' alt='cvv-help' /></div>
+                                {$form.cvv2.html}<img id='info-icon' src='{$ExtensionUrl}/images/info.png'><div id ='cvv-help'><img  src='{$ExtensionUrl}/images/cvv-help.png' alt='cvv-help' /></div>
                             </div>
                             <div class="clear"></div>
                         </div>
@@ -431,12 +431,13 @@
 	cj('.payment_processor-section input').map(function(index){
 	  var label = cj("label[for='"+this.id+"']");
 	  if(label.text().toLowerCase().indexOf("payzang") >= 0) {
-	    label.html('PayZang <br/>(Credit Card/ Electronic Check/ ACH) ');
+	    label.html('PayZang (Credit Card/ Electronic Check/ ACH) ');
 	  }
 	  else {
 	    cj(this, cj("label[for='"+this.id+"']") ).next().andSelf().wrapAll('<div class="input_label">');
 	  }
 	});
+
         //remove '-month-' option from month and '-year-' option from select year in credit_card_exp_date
 	cj('#credit_card_exp_date_M option[value=""]').remove();
 	cj('#credit_card_exp_date_Y option[value=""]').remove();
@@ -444,7 +445,6 @@
 
 	cj('.is_pledge-section').insertAfter('fieldset.credit_card_info-group');
 	cj('.is_recur-section').insertAfter('fieldset.credit_card_info-group');
-	cj('#priceset-div').insertAfter('fieldset.credit_card_info-group');
 	cj('fieldset#priceset legend').css('display', 'none');
 	var selectedIndex=cj( "#payment_method option:selected" ).text();
 	cj('ul#payment_method_li  li').removeClass('current');
@@ -545,11 +545,13 @@
 {literal}
 <style>
 .input_label {
-    float: right;
-    margin-top: -2.5%;
-    //width: 50%;
+    margin-top: 2.5%;
+    margin-left: 24px;
 }
 
+.email-5-section div.label, .payment_processor-section div.label {
+    width : 24% !important;
+}
 .Payment_Amount-section div.label label {
     font-size: 14px;
     font-weight: bold;
@@ -560,10 +562,18 @@
     text-align: right !important;
 }
 
-#pricelabel label {
-    font-size: 17px;
+#priceset label {
+    font-size: 15px;
     font-weight: bold;
     font-family: Arial,Helvetica,sans-serif;
+}
+
+div.billing_name_address-section .label {
+    width : 25% !important;
+}
+
+div.billing_name_address-section .crm-section {
+    margin-bottom: 4px !important;
 }
 
 .credit_card_number-section div span.crm-error, 
@@ -849,10 +859,6 @@ div#priceset .Payment_Amount-content input {
 }
 #installments + label {
     padding-right : 0 !important;
-}
-
-#post-4 .entry-content {
-        max-width: 720px !important;
 }
 
 #crm-container.crm-public .label {
