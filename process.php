@@ -11,7 +11,7 @@ function process_civicrm_config(&$config) {
   global $base_url;
   $framework = $config->userFramework;
   $smarty  =&  CRM_Core_Smarty::singleton( );
-  $smarty->assign('BaseUrl', $base_url);
+  $smarty->assign('ExtensionUrl', $config->extensionsURL."com.payzang.payment.module");
   $smarty->assign('FrameWork', $framework);
   _process_civix_civicrm_config($config);
 }
