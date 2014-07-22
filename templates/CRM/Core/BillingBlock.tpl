@@ -803,13 +803,29 @@ ul#payment_method_li li.current{
 div#priceset {
     border-left: 1px solid #000000;
     float: right;
-    height: 100px;
+    height: auto;
     margin: 10px 0 !important;
-    padding-top: 20px;
-    padding-left: 1.5%;
+    padding: 0 0 2% 1.5%;
     width: 40%;
 }
+div#priceset .contribution_amount-section .label {
+    float: left;
+    width: 42%;
+    padding-top: 0;
+}
+
+div#priceset label {
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+div#priceset .contribution_amount-section .contribution_amount-content {
+    float: left;
+    margin: 0;
+    width: 50%;
+}
 div#priceset .label {
+    font-size: 14px;
     padding-right: 5%;
     width: 46%;
 }
@@ -820,33 +836,37 @@ div#priceset .Payment_Amount-content input {
     background-color: #D4ECC8;
 }
 
+div#priceset .price-set-option-content {
+    display: inline-block;
+}
+
 #pricesetTotal #pricelabel {
     padding-right: 14%;
     width: 38%;
 }
 #pricesetTotal #pricevalue {
-	font-size: 15px;
+    font-size: 15px;
     padding-top: 4px;
 }
 
 .billing_name_address-group {
-	clear:both;
+    clear:both;
 }
 #choose-paymentmethod {
-	padding: 3% 0;
+    padding: 3% 0;
 }
 
 #payment_information .is_recur-section .label {
-	display: none;
+    display: none;
 }
 
 #payment_information .is_recur-section .content {
-	margin-left: 0;
+    margin-left: 0;
 }
 
 #payment_information .is_recur-section .content label {
-	display : inline;
-	padding: 0 24% 1% 1%;
+    display : inline;
+    padding: 0 24% 1% 1%;
 }
 .crm-section.payment_method-section {
     background-color: #F4F4F4;
@@ -862,25 +882,24 @@ div#priceset .Payment_Amount-content input {
 }
 
 #crm-container.crm-public .label {
-        text-align: left;
+    text-align: left;
 }
 
 @-moz-document url-prefix() { 
-  #re_account_number-section input {
-     margin: 7px 6px 0 2px;
-  }
-  
-  #account_type-section .content {
+    #re_account_number-section input {
+        margin: 7px 6px 0 2px;
+    }
+    #account_type-section .content {
         margin-left: 2% !important;
-  }
+    }
 }
 .crm-container fieldset legend {
- text-indent: -4px !important;
+    text-indent: -4px !important;
 }
 @media screen and (-webkit-min-device-pixel-ratio:0) {
     #account_type-section .content {
         margin-left: 25% !important;
-     }
+    }
 }
 
 </style>
