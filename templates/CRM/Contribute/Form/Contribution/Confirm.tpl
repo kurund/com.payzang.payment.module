@@ -121,7 +121,7 @@
         </div>
     </div>
     {/if}
-    {include file="CRM/Contribute/Form/Contribution/Honor.tpl"}
+{*    {include file="CRM/Contribute/Form/Contribution/Honor.tpl"} *}
 
     {if $customPre}
       <fieldset class="label-left crm-profile-view">

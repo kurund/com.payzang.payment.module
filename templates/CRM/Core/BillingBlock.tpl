@@ -462,7 +462,7 @@
 	    cj(this).addClass('current');
 	    cj('div.tab-content[data-tab="'+tab_id+'"]').addClass('current');
 	    cj( "#payment_method option:contains('"+tab_id+"')").attr('selected', true);
-	    cj("#payment_method").trigger('change');
+	   //cj("#payment_method").trigger('change');
 	});
 	
 });
@@ -609,6 +609,7 @@ div.billing_name_address-section .crm-section {
     font-size: 13px !important;
     height: 23px !important;
     padding: 0 6px 0 7px !important;
+    background-image: none !important;
 }
 #routing_number-section,#account_number-section,#check_number-section {
     position: absolute;
@@ -668,8 +669,9 @@ div.billing_name_address-section .crm-section {
     width: 352px;
 }
 #credit_card_number,#cvv2,#cardholder_name,#credit_card_exp_date_M,#credit_card_exp_date_Y {
-    background-color: #D4ECC8;
-    border: 1px solid #3A741F;
+    background-image : none !important;
+    background-color: #D4ECC8 !important;
+    border: 1px solid #3A741F !important;
     float: left;
 }
 #credit_card_number,#cvv2,#cardholder_name {

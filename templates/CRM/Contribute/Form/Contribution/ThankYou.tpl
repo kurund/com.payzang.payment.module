@@ -1,8 +1,8 @@
 {*
  +--------------------------------------------------------------------+
- | CiviCRM version 4.4                                                |
+ | CiviCRM version 4.5                                                |
  +--------------------------------------------------------------------+
- | Copyright CiviCRM LLC (c) 2004-2013                                |
+ | Copyright CiviCRM LLC (c) 2004-2014                                |
  +--------------------------------------------------------------------+
  | This file is a part of CiviCRM.                                    |
  |                                                                    |
@@ -134,12 +134,12 @@
 {crmRegion name="contribution-thankyou-recur-membership"}
                     <br />
                     <strong>{ts 1=$frequency_interval 2=$frequency_unit}This membership will be renewed automatically every %1 %2(s).{/ts}</strong>
-                    <div class="description crm-auto-renew-cancel-info">({ts}You will receive an email receipt which includes information about how to cancel the auto-renwal option.{/ts})</div>
+                    <div class="description crm-auto-renew-cancel-info">({ts}You will receive an email receipt which includes information about how to cancel the auto-renewal option.{/ts})</div>
 {/crmRegion}
                 {else}
 {crmRegion name="contribution-thankyou-recur"}
                     {if $installments}
-                 <p><strong>{ts 1=$frequency_interval 2=$frequency_unit 3=$installments}This recurring contribution will be automatically processed %2 for a total %3 installments (including this initial contribution).{/ts}</strong></p>
+                 <p><strong>{ts 1=$frequency_interval 2=$frequency_unit 3=$installments}This recurring contribution will be automatically processed every %1 %2(s) for a total %3 installments (including this initial contribution).{/ts}</strong></p>
                     {else}
                         <p><strong>{ts 1=$frequency_interval 2=$frequency_unit}This recurring contribution will be automatically processed every %1 %2(s).{/ts}</strong></p>
                     {/if}
@@ -173,7 +173,19 @@
     </div>
     {/if}
 
-    {include file="CRM/Contribute/Form/Contribution/Honor.tpl"}
+    {if $honor_block_is_active}
+        <div class="crm-group honor_block-group">
+            <div class="header-dark">
+                {$soft_credit_type}
+            </div>
+            <div class="display-block">
+                <div class="label-left crm-section honoree_profile-section">
+                    <strong>{$honorName}</strong></br>
+                    {include file="CRM/UF/Form/Block.tpl" fields=$honoreeProfileFields prefix='honor'}
+                </div>
+            </div>
+         </div>
+    {/if}
 
     {if $customPre}
       <fieldset class="label-left crm-profile-view">
@@ -209,7 +221,7 @@
 
     {if $onbehalfProfile}
       <div class="crm-group onBehalf_display-group label-left crm-profile-view">
-         {include file="CRM/UF/Form/Block.tpl" fields=$onbehalfProfile}
+         {include file="CRM/UF/Form/Block.tpl" fields=$onbehalfProfile prefix='onbehalf'}
          <div class="crm-section organization_email-section">
             <div class="label">{ts}Organization Email{/ts}</div>
             <div class="content">{$onBehalfEmail}</div>
@@ -249,7 +261,6 @@
         {/if}
     {/if}
 
-    {* Show credit or debit card section for 'direct' mode, except for PayPal Express (detected because credit card number is empty) *}
     {if $contributeMode eq 'direct' and ! $is_pay_later and $is_monetary and ( $amount GT 0 OR $minimum_fee GT 0 )}
 {crmRegion name="contribution-thankyou-billing-block"}
     <div class="crm-group credit_card-group">
@@ -267,9 +278,9 @@
          {if $paymentProcessor.payment_type & 2}
             <div class="display-block">
                 {ts}Account Holder{/ts}: {$account_holder}<br />
-		{ts}Bank Account Number{/ts}: {$bank_account_number}<br />
                 {ts}Bank Identification Number{/ts}: {$bank_identification_number}<br />
                 {ts}Bank Name{/ts}: {$bank_name}<br />
+                {ts}Bank Account Number{/ts}: {$bank_account_number}<br />
             </div>
          {else}
 	     <!-- Modified to add ACH details  -->
