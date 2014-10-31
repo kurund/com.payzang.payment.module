@@ -434,7 +434,7 @@
 	    label.html('PayZang (Credit Card/ Electronic Check/ ACH) ');
 	  }
 	  else {
-	    cj(this, cj("label[for='"+this.id+"']") ).next().andSelf().wrapAll('<div class="input_label">');
+	    //cj(this, cj("label[for='"+this.id+"']") ).next().andSelf().wrapAll('<div class="input_label">');
 	  }
 	});
 
@@ -546,7 +546,7 @@
 <style>
 .input_label {
     margin-top: 2.5%;
-    margin-left: 24px;
+    margin-left: none;
 }
 
 .email-5-section div.label, .payment_processor-section div.label {
@@ -660,6 +660,7 @@ div.billing_name_address-section .crm-section {
     font-size: 13px !important;
     height: 25px !important;
     padding: 0 0px 0 7px !important;
+    background-image: none;
 }
 #CREDIT-card-Fields {
     background-repeat: no-repeat;
