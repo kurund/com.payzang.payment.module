@@ -1,26 +1,27 @@
 <?xml version="1.0"?>
 <extension key="com.payzang.payment.module" type="module">
-  <downloadUrl>https://github.com/webaccess/com.payzang.payment.module/archive/master.zip</downloadUrl>
+  <downloadUrl>https://github.com/webaccess/com.payzang.payment.module</downloadUrl>
   <file>process</file>
   <name>Payzang Payment Module Extension</name>
-  <description>Extension for civi customizations for Payzang</description>
+  <description>CiviCRM extension for using Payzang Payment Platform</description>
   <urls>
-    <url desc="Main Extension Page">https://github.com/webaccess/com.payzang.payment.module</url>
-    <url desc="Documentation">https://github.com/webaccess/com.payzang.payment.module/PayZang Payment Processor Installation Instructions.pdf</url>
-    <url desc="Licensing">http://civicrm.org/licensing</url>
+    		<url desc="Main Extension Page">https://github.com/webaccess/com.payzang.payment.module</url>
+    		<url desc="Documentation">https://github.com/webaccess/com.payzang.payment.module/blob/master/PayZang Payment Processor Installation Instructions.pdf</url>
+    		<url desc="Licensing">http://civicrm.org/licensing</url>
+    		<url desc="Support">http://payzang.com/contact-us</url>
   </urls>
   <license>AGPL</license>
   <maintainer>
-    <author>PayZang</author>
+    <author>Payzang</author>
     <email>kumar@payzang.com</email>
   </maintainer>
-  <releaseDate>2014-04-21</releaseDate>
+  <releaseDate>2014-06-11</releaseDate>
   <version>1.0</version>
-  <develStage>beta</develStage>
+  <develStage>Stable</develStage>
   <compatibility>
-    <ver>4.4</ver>
+    <ver>4.5.*</ver>
   </compatibility>
-  <comments></comments>
+  <comments>CiviCRM Extension Module for PayZang Payment Platform has been tested with CiviCRM 4.5.2. To get a new Payzang account, call 1-800-838-8651.</comments>
   <civix>
     <namespace>CRM/Process</namespace>
   </civix>
