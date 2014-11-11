@@ -148,13 +148,9 @@ function process_civicrm_buildForm($formName, &$form) {
         if(!empty($element->_attributes['name']) && $element->_attributes['name'] == 'frequency_unit')
           {
             $options = array();
-            $options[] = array("text" => "weekly", "attr" => array("value" => "weekly"));
-            $options[] = array("text" => "bi-weekly", "attr" => array("value" => "bi-weekly"));
-            $options[] = array("text" => "monthly", "attr" => array("value" => "monthly"));
-            $options[] = array("text" => "bi-monthly", "attr" => array("value" => "bi-monthly"));
-            $options[] = array("text" => "quarterly", "attr" => array("value" => "quarterly"));
-            $options[] = array("text" => "semiannually", "attr" => array("value" => "semiannually"));
-            $options[] = array("text" => "yearly", "attr" => array("value" => "yearly"));
+            $options[] = array("text" => "week", "attr" => array("value" => "week"));
+            $options[] = array("text" => "month", "attr" => array("value" => "month"));
+            $options[] = array("text" => "year", "attr" => array("value" => "year"));
             $element->_options = $options;
           }
       }
@@ -204,13 +200,9 @@ function process_civicrm_buildForm($formName, &$form) {
         array('onclick' => "showHideByValue('is_recur',true,'recurFields','table-row','radio',false); showRecurInterval( );") );
       require_once 'CRM/Core/OptionGroup.php';
       $frequencyUnitOptions = array(
-        'weekly'    => 'weekly',
-        'bi-weekly' => 'bi-weekly',
-        'monthly'   => 'monthly',
-        'bi-monthly' => 'bi-monthly',
-        'quarterly' => 'quarterly',
-        'semiannually' => 'semiannually',
-        'yearly'    => 'yearly'
+        'week'    => 'week',
+        'month'   => 'month',
+        'year'    => 'year'
       );
       $form->addCheckBox( 'recur_frequency_unit', ts('Supported recurring units'),
         $frequencyUnitOptions,
@@ -243,7 +235,7 @@ function process_civicrm_validate( $formName, &$fields, &$files, &$form ) {
 
     CRM_Financial_BAO_PaymentProcessor::retrieve($processor_id, $defaults );
 
-    $frequency_interval=array ( 'monthly' , 'bi-monthly', 'weekly' , 'bi-weekly' , 'quarterly' , 'semiannually', 'yearly');
+    $frequency_interval=array ( 'week' , 'month' , 'year');
     $flag = 0;
     if ( !empty( $fields['recur_frequency_unit'] ) ) {
       foreach( $frequency_interval as $key=>$values ) {

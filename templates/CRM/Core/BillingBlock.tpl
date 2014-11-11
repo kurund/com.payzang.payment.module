@@ -94,7 +94,7 @@
                                 {$form.payment_method.html}</div>
                                 <div class="clear"></div>
                             </div>
-			    <div id="billing-instructions">Please fill the green fields below</div>
+			    <div id="billing-instructions">You have selected <b>"{$paymentProcessor.name}"</b> account. Please fill the green fields below</div>
 			    <div data-tab="ACH" class="tab-content">
 
 			    <div id="ACH-fields" style="background-image:url({$ExtensionUrl}/images/eCheckBkg.jpg)">
