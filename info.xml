@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <extension key="com.payzang.payment.module" type="module">
-  <downloadUrl>https://github.com/webaccess/com.payzang.payment.module</downloadUrl>
+- <downloadUrl>https://github.com/webaccess/com.payzang.payment.module/archive/master.zip</downloadUrl>
   <file>process</file>
   <name>Payzang Payment Module Extension</name>
   <description>CiviCRM extension for using Payzang Payment Platform</description>
